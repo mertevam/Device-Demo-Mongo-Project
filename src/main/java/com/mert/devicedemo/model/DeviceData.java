@@ -7,6 +7,7 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.Map;
 import java.util.UUID;
 
@@ -17,7 +18,7 @@ public class DeviceData {
 
     @Id
     private UUID id;
-    private long createdAt;            // could get by currenttimemilis()
+    private Timestamp createdAt;            // can get by currenttimemilis()
     private Map<String, BigDecimal> parameters;
 
 }
