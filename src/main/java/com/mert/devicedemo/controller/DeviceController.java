@@ -28,7 +28,7 @@ public class DeviceController {
     }
 
     @GetMapping("/")
-    public List<Device> getDevice() {
+    public List<Device> getDevices() {
         return deviceService.getDevices();
     }
 
@@ -52,6 +52,11 @@ public class DeviceController {
     @PostMapping("/data")
     public void saveData(@RequestBody DeviceData deviceData){
         deviceService.saveData(deviceData);
+    }
+
+    @GetMapping("/data")
+    public List<DeviceData> getDevicesData() {
+        return deviceService.getDevicesData();
     }
 
 }
