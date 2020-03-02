@@ -5,12 +5,16 @@ import com.mert.devicedemo.model.DeviceData;
 import com.mert.devicedemo.repository.DeviceDataRepository;
 import com.mert.devicedemo.repository.DeviceRepository;
 import com.mert.devicedemo.service.DeviceService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
+@Slf4j
 public class DeviceServiceImpl implements DeviceService {
 
     private final DeviceRepository deviceRepository;
@@ -56,8 +60,16 @@ public class DeviceServiceImpl implements DeviceService {
         deviceRepository.delete(existingDevice);
     }
 
+    // DeviceData
+
     @Override
     public void saveData(DeviceData deviceData) {
+        log.debug("Device save successfully. Device data: {} ",deviceData);
         deviceDataRepository.save(deviceData);
+    }
+
+    @Override
+    public List<DeviceData> getDevicesData() {
+        return deviceDataRepository.findAll();
     }
 }
