@@ -1,6 +1,7 @@
 package com.mert.devicedemo.service;
 
 import com.mert.devicedemo.model.Device;
+import com.mert.devicedemo.model.DeviceData;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,4 +20,7 @@ public interface DeviceService {
 
     // @NotNull can be added to String deviceSerialNumber
     void deleteDevice(UUID deviceSerialNumber);
+
+    // Device Data
+    void saveData(DeviceData deviceData);
 }
