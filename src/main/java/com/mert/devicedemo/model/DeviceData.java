@@ -18,7 +18,7 @@ public class DeviceData {
 
     @Id
     private UUID id;
-    private long createdAt;            // can get by currenttimemilis() ,  Timestamp type da oluşturulabilir
+    private long createdAt;            // get by System.currentTimeMillis() ,  Timestamp type da oluşturulabilir
     private Map<String, BigDecimal> parameters;
 
 }

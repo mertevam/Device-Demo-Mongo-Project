@@ -1,6 +1,7 @@
 package com.mert.devicedemo.controller;
 
 import com.mert.devicedemo.model.Device;
+import com.mert.devicedemo.model.DeviceData;
 import com.mert.devicedemo.service.impl.DeviceServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -44,6 +45,13 @@ public class DeviceController {
     @DeleteMapping("/{device-serial-number}")
     public void deleteDevice(@PathVariable("device-serial-number") UUID deviceSerialNumber){
         deviceService.deleteDevice(deviceSerialNumber);
+    }
+
+    // DeviceData
+
+    @PostMapping("/data")
+    public void saveData(@RequestBody DeviceData deviceData){
+        deviceService.saveData(deviceData);
     }
 
 }
