@@ -23,4 +23,5 @@ public interface DeviceService {
 
     // Device Data
     void saveData(DeviceData deviceData);
+    List<DeviceData> getDevicesData();
 }
