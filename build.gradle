@@ -36,7 +36,7 @@ test {
 }
 
 // Here, group and description can be anything you want. You can even omit them, but doing so will also omit them from the tasks report, used later.
-task copy(type: Copy, group: "Custom", description: "Copies sources to the dest directory") {
-	from "src/main/java/com/mert/devicedemo/myFile.txt"
-	into "dest"
-}
+//task copy(type: Copy, group: "Custom", description: "Copies sources to the dest directory") {
+//	from "src/main/java/com/mert/devicedemo/myFile.txt"
+//	into "dest"
+//}
