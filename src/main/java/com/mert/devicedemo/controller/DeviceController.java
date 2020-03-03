@@ -22,8 +22,8 @@ public class DeviceController {
     }
 
 
-    @GetMapping("/{device-serial-number}")
-    public Optional<Device> getDevice(@PathVariable("device-serial-number") UUID deviceSerialNumber) {
+    @GetMapping("/{deviceSerialNumber}")
+    public Optional<Device> getDevice(@PathVariable("deviceSerialNumber") UUID deviceSerialNumber) {
         return deviceService.getDevice(deviceSerialNumber);
     }
 
@@ -37,13 +37,13 @@ public class DeviceController {
         return deviceService.createDevice(device);
     }
 
-    @PutMapping("/{device-serial-number}")
-    public void updateDevice(@RequestBody Device device, @PathVariable("device-serial-number") UUID deviceSerialNumber) {
-        deviceService.updateDevice(deviceSerialNumber ,device);
+    @PutMapping("/{deviceSerialNumber}")
+    public void updateDevice(@RequestBody Device device, @PathVariable("deviceSerialNumber") UUID deviceSerialNumber) {
+        deviceService.updateDevice(deviceSerialNumber, device);
     }
 
-    @DeleteMapping("/{device-serial-number}")
-    public void deleteDevice(@PathVariable("device-serial-number") UUID deviceSerialNumber){
+    @DeleteMapping("/{deviceSerialNumber}")
+    public void deleteDevice(@PathVariable("deviceSerialNumber") UUID deviceSerialNumber){
         deviceService.deleteDevice(deviceSerialNumber);
     }
 

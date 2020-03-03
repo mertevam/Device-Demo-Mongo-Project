@@ -9,11 +9,11 @@ import com.mert.devicedemo.repository.DeviceRepository;
 import com.mert.devicedemo.service.DeviceService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @Slf4j
@@ -46,8 +46,9 @@ public class DeviceServiceImpl implements DeviceService {
 
     @Override
     public void updateDevice(UUID deviceSerialNumber, Device device) {
-        if (deviceRepository.findById(deviceSerialNumber).isPresent()) {
-            Device existingDevice = deviceRepository.findById(deviceSerialNumber).get();
+        Optional<Device> optionalDevice = deviceRepository.findById(deviceSerialNumber);
+        if (optionalDevice.isPresent()) {
+            Device existingDevice = optionalDevice.get();
 
             existingDevice.setDeviceName(device.getDeviceName());
             existingDevice.setAliasName(device.getAliasName());
@@ -55,8 +56,7 @@ public class DeviceServiceImpl implements DeviceService {
             existingDevice.setUpdatedAt(device.getUpdatedAt());
 
             deviceRepository.save(existingDevice);
-        }
-        else {
+        } else {
             throw new NotFoundModelException(Device.class.getSimpleName(), device.getSerialNumber().toString());
         }
     }
@@ -72,20 +72,18 @@ public class DeviceServiceImpl implements DeviceService {
     @Override
     public void saveData(DeviceData deviceData) {
         Optional<Device> existingDevice = deviceRepository.findById(deviceData.getId());
+        String id = deviceData.getId().toString();
+        if (!existingDevice.isPresent()) {
+            throw new NotFoundModelException(Device.class.getSimpleName(), id);
+        }
+
         Optional<DeviceData> existingDeviceData = deviceDataRepository.findById(deviceData.getId());
-        if (existingDevice.isPresent()) {
-            if (!existingDeviceData.isPresent()) {
-                log.debug("Device save successfully. Device data: {} ", deviceData);
-                deviceDataRepository.save(deviceData);
-            }
-            else {
-                throw new AlreadyCreatedModelException(DeviceData.class.getSimpleName(), deviceData.getId().toString());
-            }
+        if (existingDeviceData.isPresent()) {
+            throw new AlreadyCreatedModelException(DeviceData.class.getSimpleName(), id);
         }
-        else {
-            throw new NotFoundModelException(Device.class.getSimpleName(), deviceData.getId().toString());
-            // System.out.println("Device can not found with this device data id!");
-        }
+
+        log.debug("Device save successfully. Device data: {} ", deviceData);
+        deviceDataRepository.save(deviceData);
     }
 
     @Override
