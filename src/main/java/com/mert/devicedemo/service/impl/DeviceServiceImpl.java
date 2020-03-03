@@ -64,8 +64,14 @@ public class DeviceServiceImpl implements DeviceService {
 
     @Override
     public void saveData(DeviceData deviceData) {
-        log.debug("Device save successfully. Device data: {} ",deviceData);
-        deviceDataRepository.save(deviceData);
+        if (deviceRepository.findById(deviceData.getId()).isPresent()) {
+            log.debug("Device save successfully. Device data: {} ",deviceData);
+            deviceDataRepository.save(deviceData);
+        }
+        else {
+            System.out.println("Device can not found with this device data id!");
+        }
+
     }
 
     @Override
