@@ -9,7 +9,7 @@ import static org.springframework.boot.SpringApplication.run;
 public class DeviceConsumerApplication {
 
 	public static void main(String[] args) {
-		run(DeviceConsumerApplication.class, args);
+		SpringApplication.run(DeviceConsumerApplication.class, args);
 
 		System.out.println("Device consumer module");
 	}

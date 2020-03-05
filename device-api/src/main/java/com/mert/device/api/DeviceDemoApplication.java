@@ -16,7 +16,7 @@ import static org.springframework.boot.SpringApplication.run;
 public class DeviceDemoApplication {
 
     public static void main(String[] args) {
-        run(DeviceDemoApplication.class, args);
+        SpringApplication.run(DeviceDemoApplication.class, args);
     }
 
 }
