@@ -1,7 +1,7 @@
-package com.mert.devicedemo.repository;
+package com.mert.device.api.repository;
 
-import com.mert.devicedemo.model.Device;
-import com.mert.devicedemo.model.DeviceData;
+import com.mert.device.api.model.Device;
+import com.mert.device.api.model.DeviceData;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.UUID;

@@ -1,4 +1,4 @@
-package com.mert.devicedemo.exception;
+package com.mert.device.api.exception;
 
 import lombok.AccessLevel;
 import lombok.Getter;

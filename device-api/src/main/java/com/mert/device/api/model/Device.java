@@ -1,4 +1,4 @@
-package com.mert.devicedemo.model;
+package com.mert.device.api.model;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;

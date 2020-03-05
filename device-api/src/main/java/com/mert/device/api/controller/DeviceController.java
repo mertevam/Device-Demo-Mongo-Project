@@ -1,8 +1,8 @@
-package com.mert.devicedemo.controller;
+package com.mert.device.api.controller;
 
-import com.mert.devicedemo.model.Device;
-import com.mert.devicedemo.model.DeviceData;
-import com.mert.devicedemo.service.impl.DeviceServiceImpl;
+import com.mert.device.api.model.Device;
+import com.mert.device.api.model.DeviceData;
+import com.mert.device.api.service.impl.DeviceServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,12 +1,12 @@
-package com.mert.devicedemo.service.impl;
+package com.mert.device.api.service.impl;
 
-import com.mert.devicedemo.exception.AlreadyCreatedModelException;
-import com.mert.devicedemo.exception.NotFoundModelException;
-import com.mert.devicedemo.model.Device;
-import com.mert.devicedemo.model.DeviceData;
-import com.mert.devicedemo.repository.DeviceDataRepository;
-import com.mert.devicedemo.repository.DeviceRepository;
-import com.mert.devicedemo.service.DeviceService;
+import com.mert.device.api.exception.AlreadyCreatedModelException;
+import com.mert.device.api.exception.NotFoundModelException;
+import com.mert.device.api.model.Device;
+import com.mert.device.api.model.DeviceData;
+import com.mert.device.api.repository.DeviceDataRepository;
+import com.mert.device.api.repository.DeviceRepository;
+import com.mert.device.api.service.DeviceService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
-package com.mert.devicedemo.service;
+package com.mert.device.api.service;
 
-import com.mert.devicedemo.model.Device;
-import com.mert.devicedemo.model.DeviceData;
+import com.mert.device.api.model.Device;
+import com.mert.device.api.model.DeviceData;
 
 import java.util.List;
 import java.util.Optional;
