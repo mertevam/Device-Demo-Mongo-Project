@@ -1,1 +1,2 @@
-rootProject.name = 'DeviceDemo'
+rootProject.name = 'device'
+include 'device-api', 'device-consumer'
