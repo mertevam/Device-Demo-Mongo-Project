@@ -1,6 +1,7 @@
 package com.mert.device.consumer.service.impl;
 
 import com.mert.device.consumer.service.KafkaConsumerService;
+import com.mert.device.core.callback.KafkaMessageCallbackListener;
 import com.mert.device.core.model.Message;
 
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 public class KafkaConsumerServiceImpl implements KafkaConsumerService {
+
+    KafkaMessageCallbackListener listener;
 
     @KafkaListener(
             id = "23423423sdfdsfsd1",

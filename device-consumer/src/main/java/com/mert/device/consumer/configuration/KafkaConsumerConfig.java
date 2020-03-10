@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-@EnableKafka
+//@EnableKafka
 public class KafkaConsumerConfig {
 
     @Value(value = "${kafka.bootstrapAddress}")
