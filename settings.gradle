@@ -1,3 +1,4 @@
 rootProject.name = 'device'
+include ':device-core'
 include ':device-api'
 include ':device-consumer'

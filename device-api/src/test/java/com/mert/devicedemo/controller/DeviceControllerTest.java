@@ -2,10 +2,11 @@ package com.mert.devicedemo.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mert.devicedemo.model.Device;
-import com.mert.devicedemo.model.DeviceData;
-import com.mert.devicedemo.repository.DeviceDataRepository;
-import com.mert.devicedemo.repository.DeviceRepository;
+import com.mert.device.api.repository.DeviceRepository;
+import com.mert.device.api.model.Device;
+import com.mert.device.api.model.DeviceData;
+import com.mert.device.api.repository.DeviceDataRepository;
+import com.mert.device.api.repository.DeviceRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

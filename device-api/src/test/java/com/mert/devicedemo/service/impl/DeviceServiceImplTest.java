@@ -1,12 +1,12 @@
 package com.mert.devicedemo.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mert.devicedemo.exception.AlreadyCreatedModelException;
-import com.mert.devicedemo.model.Device;
-import com.mert.devicedemo.model.DeviceData;
-import com.mert.devicedemo.repository.DeviceDataRepository;
-import com.mert.devicedemo.repository.DeviceRepository;
-import com.mert.devicedemo.service.DeviceService;
+import com.mert.device.api.exception.AlreadyCreatedModelException;
+import com.mert.device.api.model.Device;
+import com.mert.device.api.model.DeviceData;
+import com.mert.device.api.repository.DeviceDataRepository;
+import com.mert.device.api.repository.DeviceRepository;
+import com.mert.device.api.service.DeviceService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
