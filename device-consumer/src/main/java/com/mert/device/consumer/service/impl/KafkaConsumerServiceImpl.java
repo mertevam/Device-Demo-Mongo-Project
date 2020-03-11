@@ -13,8 +13,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaConsumerServiceImpl implements KafkaConsumerService {
 
-    KafkaMessageCallbackListener listener;
-
     @KafkaListener(
             id = "23423423sdfdsfsd1",
             topics = {"${kafka.topic.message.topicName}"},
