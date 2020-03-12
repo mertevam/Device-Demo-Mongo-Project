@@ -1,7 +1,4 @@
-package com.mert.device.consumer.configuration;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.mert.device.api.configuration;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
@@ -10,13 +7,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.KafkaAdmin;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Configuration
 public class KafkaTopicConfig {
-
     @Value(value = "${kafka.bootstrapAddress}")
     private String bootstrapAddress;
-    @Value(value = "${kafka.topic.message.topicName}")
-    private String messageTopicName;
+    @Value(value = "${kafka.topic.data.topicName}")
+    private String dataTopicName;
 
     @Bean
     public KafkaAdmin kafkaAdmin() {
@@ -26,8 +25,8 @@ public class KafkaTopicConfig {
     }
 
     @Bean
-    public NewTopic messageTopic() {
-        return new NewTopic(messageTopicName, 1, (short) 1);
+    public NewTopic dataTopic() {
+        return new NewTopic(dataTopicName, 1, (short) 1);
     }
 
 }

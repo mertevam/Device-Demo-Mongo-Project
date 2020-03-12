@@ -2,6 +2,7 @@ package com.mert.device.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import static org.springframework.boot.SpringApplication.run;
 
@@ -12,7 +13,9 @@ import static org.springframework.boot.SpringApplication.run;
 // to scan a different root package by type if your project layout has multiple projects
 // and it does not find your repositories.
 
+
 @SpringBootApplication
+@EnableScheduling
 public class DeviceDemoApplication {
 
     public static void main(String[] args) {

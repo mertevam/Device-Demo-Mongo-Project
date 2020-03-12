@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @Data
-public class Message {
+public class DeviceDataTest {
 
 //    private String context;
 //    private long timestamp;
@@ -19,7 +19,7 @@ public class Message {
     private Map<String, BigDecimal> parameters;
 
     @JsonCreator
-    public Message(@JsonProperty("message") UUID id,
+    public DeviceDataTest(@JsonProperty("message") UUID id,
                    @JsonProperty("timestamp") long timestamp,
                    @JsonProperty("parameters") Map<String, BigDecimal> parameters) {
         this.id = id;
