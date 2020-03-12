@@ -14,14 +14,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaMessageServiceImpl implements KafkaMessageService {
 
-    private Gson jsonConverter;
-    private KafkaTemplate<String, Message> messageKafkaTemplate;
+    private KafkaTemplate<String, DeviceDataTest> deviceDataTestKafkaTemplate;
 
     @KafkaListener(
             id = "23423423sdfdsfsd1",
             topics = {"${kafka.topic.data.topicName}"},
             groupId = "${kafka.topic.data.groupName}",
-            containerFactory = "messageKafkaListenerContainerFactory",
+            containerFactory = "deviceDataTestKafkaListenerContainerFactory",
             autoStartup = "true")
     @Override
     public void consume(ConsumerRecord<String, DeviceDataTest> deviceDataTestConsumerRecord) {
@@ -29,17 +28,17 @@ public class KafkaMessageServiceImpl implements KafkaMessageService {
         log.info("{}", deviceDataTestConsumerRecord);
     }
 
-    @KafkaListener(id = "23sdd1",
-            topics = "mert3",
-            groupId = "MESSAGE_DATA",
-            containerFactory = "messageKafkaListenerContainerFactory",
-            autoStartup = "true")
-    public void getFromKafka(Message messageFromKafka){
-        System.out.println(messageFromKafka.toString());
-        Message simpleMessage = jsonConverter.fromJson(String.valueOf(messageFromKafka), Message.class);
-        System.out.println(simpleMessage.toString());
-        log.info("received kafka message: {}", simpleMessage.toString());
-//        messageKafkaTemplate.send("mert2", simpleMessage);
-
-    }
+//
+//    @KafkaListener(id = "23sdd1",
+//            topics = "mert3",
+//            groupId = "MESSAGE_DATA",
+//            containerFactory = "messageKafkaListenerContainerFactory",
+//            autoStartup = "true")
+//    public void getFromKafka(Message messageFromKafka){
+//        System.out.println(messageFromKafka.toString());
+//        Message simpleMessage = jsonConverter.fromJson(String.valueOf(messageFromKafka), Message.class);
+//        System.out.println(simpleMessage.toString());
+//        log.info("received kafka message: {}", simpleMessage.toString());
+////        messageKafkaTemplate.send("mert2", simpleMessage);
+//    }
 }

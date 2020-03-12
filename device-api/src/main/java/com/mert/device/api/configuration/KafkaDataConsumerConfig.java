@@ -48,7 +48,7 @@ public class KafkaDataConsumerConfig {
     private String dataGroupName;
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, DeviceDataTest> messageKafkaListenerContainerFactory() {
+    public ConcurrentKafkaListenerContainerFactory<String, DeviceDataTest> deviceDataTestConcurrentKafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, DeviceDataTest> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(deviceDataTestConsumerFactory());
         return factory;

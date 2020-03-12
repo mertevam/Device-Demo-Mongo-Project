@@ -10,7 +10,7 @@ public interface KafkaMessageService {
             id = "23423423sdfdsfsd1",
             topics = {"${kafka.topic.data.topicName}"},
             groupId = "${kafka.topic.data.groupName}",
-            containerFactory = "messageKafkaListenerContainerFactory",
+            containerFactory = "deviceDataTestKafkaListenerContainerFactory",
             autoStartup = "true")
     void consume(ConsumerRecord<String, DeviceDataTest> deviceDataTestConsumerRecord);
 }
