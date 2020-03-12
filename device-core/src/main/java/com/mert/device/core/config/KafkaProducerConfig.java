@@ -1,5 +1,7 @@
 package com.mert.device.core.config;
 
+import com.fasterxml.jackson.databind.ser.std.StringSerializer;
+import com.mert.device.core.model.DeviceDataTest;
 import com.mert.device.core.model.Message;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,13 +24,23 @@ public class KafkaProducerConfig {
     private String bootstrapAddress;
 
     @Bean
-    public ProducerFactory<String, Message> producerFactory() {
+    public ProducerFactory<String, Message> messageProducerFactory() {
         return new DefaultKafkaProducerFactory<>(getCommonConfigProperties());
     }
 
     @Bean
     public KafkaTemplate<String, Message> messageKafkaTemplate() {
-        return new KafkaTemplate<>(producerFactory());
+        return new KafkaTemplate<>(messageProducerFactory());
+    }
+
+    @Bean
+    public ProducerFactory<String, DeviceDataTest> deviceDataTestProducerFactory() {
+        return new DefaultKafkaProducerFactory<>(getCommonConfigProperties());
+    }
+
+    @Bean
+    public KafkaTemplate<String, DeviceDataTest> deviceDataTestKafkaTemplate() {
+        return new KafkaTemplate<>(deviceDataTestProducerFactory());
     }
 
     private Map<String, Object> getCommonConfigProperties(){
