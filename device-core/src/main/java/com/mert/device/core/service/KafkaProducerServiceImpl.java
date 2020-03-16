@@ -2,6 +2,7 @@ package com.mert.device.core.service;
 
 import com.mert.device.core.callback.KafkaDeviceDataTestCallbackListener;
 import com.mert.device.core.callback.KafkaMessageCallbackListener;
+import com.mert.device.core.model.CompositeId;
 import com.mert.device.core.model.DeviceDataTest;
 import com.mert.device.core.model.Message;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,16 +41,17 @@ public class KafkaProducerServiceImpl implements KafkaProducerService {
         this.messageCallbackListener = new KafkaMessageCallbackListener();
     }
 
-    @Scheduled(fixedDelay = 10 * 1000L, initialDelay = 10L * 3)
+    @Scheduled(fixedDelay = 100 * 1000L, initialDelay = 10L * 3)
     public void sendRandomMessageData() {
         UUID id = UUID.randomUUID();
         long timestamp = System.currentTimeMillis();
+        CompositeId compositeId = new CompositeId(id, timestamp);
         Map<String, BigDecimal> parameters = new HashMap<>();
-        Message message = new Message(id, timestamp, parameters);
+        Message message = new Message(compositeId, parameters);
         sendMessage(message);
     }
 
-    @Scheduled(fixedDelay = 10 * 1000L, initialDelay = 10L * 3)
+    @Scheduled(fixedDelay = 100 * 1000L, initialDelay = 10L * 3)
     public void sendRandomDeviceDataTest() {
         UUID id = UUID.randomUUID();
         long timestamp = System.currentTimeMillis();

@@ -2,6 +2,8 @@ package com.mert.device.api.service;
 
 import com.mert.device.api.model.Device;
 import com.mert.device.api.model.DeviceData;
+import com.mert.device.core.model.CompositeId;
+import com.mert.device.core.model.Message;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,6 +25,10 @@ public interface DeviceService {
 
     // Device Data
     void saveData(DeviceData deviceData);
+
+    void saveData(Message message);
+
+//    Optional<Message> getData(CompositeId id);
 
     List<DeviceData> getDevicesData();
 }

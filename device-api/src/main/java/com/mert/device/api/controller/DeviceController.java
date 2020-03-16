@@ -22,6 +22,7 @@ import java.util.UUID;
 public class DeviceController {
 
     private final DeviceServiceImpl deviceService;
+
 //    private final KafkaTemplate<String, Message> messageKafkaTemplate;
 //    private KafkaTemplate<>
 
@@ -68,6 +69,10 @@ public class DeviceController {
         return deviceService.getDevicesData();
     }
 
+    @PostMapping("/message")
+    public void saveMessage(@RequestBody Message message) {
+        deviceService.saveData(message);
+    }
 
 
 }

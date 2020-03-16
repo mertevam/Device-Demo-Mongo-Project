@@ -21,26 +21,8 @@ public class KafkaConsumerConfig {
 
     @Value(value = "${kafka.bootstrapAddress}")
     private String bootstrapAddress;
-    @Value(value = "${kafka.topic.message.groupName}")
+    @Value(value = "${kafka.topic.message.groupName2}")
     private String messageGroupName;
-
-//    @Bean
-//    public ConsumerFactory<String, String> consumerFactory() {
-//        Map<String, Object> props = new HashMap<>();
-//        props.put(
-//                ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
-//                bootstrapAddress);
-//        props.put(
-//                ConsumerConfig.GROUP_ID_CONFIG,
-//                "MESSAGE");
-//        props.put(
-//                ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,
-//                StringDeserializer.class);
-//        props.put(
-//                ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
-//                JsonDeserializer.class);
-//        return new DefaultKafkaConsumerFactory<>(props);
-//    }
 
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String, Message> messageKafkaListenerContainerFactory() {
@@ -48,18 +30,6 @@ public class KafkaConsumerConfig {
         factory.setConsumerFactory(messageConsumerFactory());
         return factory;
     }
-
-//    @Bean
-//    public ConcurrentKafkaListenerContainerFactory<String, String>
-//    kafkaListenerContainerFactory() {
-//
-//        ConcurrentKafkaListenerContainerFactory<String, String> factory =
-//                new ConcurrentKafkaListenerContainerFactory<>();
-//        factory.setConsumerFactory(consumerFactory());
-//        return factory;
-//    }
-
-    //
 
     private Map<String, Object> messageConsumerConfigs() {
         Map<String, Object> props = new HashMap<>();
