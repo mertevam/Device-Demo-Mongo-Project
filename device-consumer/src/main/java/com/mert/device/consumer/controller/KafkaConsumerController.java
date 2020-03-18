@@ -23,8 +23,8 @@ public class KafkaConsumerController {
     }
 
     @GetMapping("/get")
-    public List<Message> getDevices() {
-        log.info("getDevices()");
+    public List<Message> getMessages() {
+        log.info("getMessages()");
         return consumerService.getMessages();
     }
 }

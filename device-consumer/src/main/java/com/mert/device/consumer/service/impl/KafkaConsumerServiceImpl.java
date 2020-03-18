@@ -47,7 +47,7 @@ public class KafkaConsumerServiceImpl implements KafkaConsumerService {
         System.out.println(message);
         log.info("{}", message);
         messageRepository.save(message.value());
-
+        // logic ops will be added!
     }
 
     @Override

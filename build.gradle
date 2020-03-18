@@ -22,6 +22,7 @@ subprojects {
 		implementation 'org.springframework.boot:spring-boot-starter-web'
 		implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 		implementation 'org.springframework.kafka:spring-kafka'
+		compile group: 'org.apache.kafka', name: 'kafka-clients', version: '2.4.0'
 
 // https://mvnrepository.com/artifact/junit/junit
 //		testCompile group: 'junit', name: 'junit', version: '4.13'
@@ -32,6 +33,11 @@ subprojects {
 		testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0'
 		testImplementation 'org.springframework.kafka:spring-kafka-test'
 		testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
+		testImplementation('org.springframework.boot:spring-boot-starter-test') {
+			exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+		}
+		implementation 'org.junit.jupiter:junit-jupiter'
+		implementation 'junit:junit:4.12'
 	}
 
 }
@@ -72,3 +78,15 @@ bootJar {
 jar {
 	enabled = true
 }
+
+//
+//testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: "${springBootVersion}"
+//testCompile group: 'org.springframework.security', name: 'spring-security-test'
+//testCompile(group: 'junit', name: 'junit', version: "${junitVersion}") {
+//	exclude(module: 'hamcrest-core')
+//}
+//testCompile group: 'org.mockito', name: 'mockito-core', version: "${mockitoVersion}"
+//testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: "${hamcrestVersion}"
+//testCompile group: 'org.powermock', name: 'powermock-module-junit4', version: "${powermockVersion}"
+//testCompile group: 'org.powermock', name: 'powermock-api-mockito2', version: "${powermockVersion}"
+//testCompile group: 'de.flapdoodle.embed', name: 'de.flapdoodle.embed.mongo', version: "${flapdoodleEmbedMongoVersion}"
